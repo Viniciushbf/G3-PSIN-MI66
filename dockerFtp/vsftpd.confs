@@ -2,8 +2,8 @@
 anonymous_enable=NO
 # Local habilitado 
 local_enable=YES
- 
-virtual_use_local_privs=YES
+
+# virtual_use_local_privs=YES
 
 # habilita a escrita
 write_enable=YES
@@ -22,7 +22,7 @@ guest_enable=YES
 
 user_sub_token=$USER
 
-local_root=/home/vsftpd/$USER
+local_root=/home/$USER
 
 chroot_local_user=YES
 
@@ -43,6 +43,12 @@ listen=NO
 listen_ipv6=YES
 
 xferlog_file=/var/log/vsftpd.log
+
+userlist_file=/etc/vsftpd/user_list
+
+userlist_deny=NO
+
+userlist_enable=YES
 
 pasv_min_port=30000
 

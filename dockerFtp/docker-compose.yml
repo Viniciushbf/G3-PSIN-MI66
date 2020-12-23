@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+ apache:
+  image: apache
+  container_name: apache
+  restart: always
+  ports:
+   - '8080:80'
+   - '443:443'
+  networks:
+   - local
+ ftp-server:
+  image: ftp
+  container_name: ftp
+  restart: always
+  ports:
+   - '21:21'
+   - '30000:30000'
+   - '20:20'
+   - '31000:31000'
+  volumes:
+   - /home/anonymous/ftp_dir:/home/vsftpd/anon/
+ db:
+  image: mysql:5.7
+  container_name: db
+  restart: always
+  environment:
+   MYSQL_DATABASE: teste
+   MYSQL_ROOT_PASSWORD: admin123
+   MYSQL_PASSWORD: admin123
+   MYSQL_USER: admin
+  volumes:
+    - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+  ports:
+    - '3306:3306'
+  networks:
+    - local
+networks:
+ local:
+  driver: bridge
