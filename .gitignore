@@ -10,3 +10,9 @@ DockerfileFTP
 DockerfileFTP2
 vsftpd.bak 
 vsftpd.confs
+docker-compose.yml
+dockerApache/.docker-compose.yml.swn
+dockerApache/.docker-compose.yml.swp
+dockerApache/2q
+dockerApache/docker-compose.yml
+
